@@ -1,0 +1,24 @@
+# permissions for end users to edit exchanges.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: exchange-editor-role
+rules:
+- apiGroups:
+  - rabbitmq.com
+  resources:
+  - exchanges
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - rabbitmq.com
+  resources:
+  - exchanges/status
+  verbs:
+  - get

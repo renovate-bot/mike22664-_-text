@@ -1,0 +1,43 @@
+# This kustomization.yaml is not intended to be run by itself,
+# since it depends on service name and namespace that are out of this kustomize package.
+# It should be run by config/default
+resources:
+- bases/rabbitmq.com_queues.yaml
+- bases/rabbitmq.com_exchanges.yaml
+- bases/rabbitmq.com_bindings.yaml
+- bases/rabbitmq.com_users.yaml
+- bases/rabbitmq.com_vhosts.yaml
+- bases/rabbitmq.com_policies.yaml
+- bases/rabbitmq.com_permissions.yaml
+- bases/rabbitmq.com_schemareplications.yaml
+- bases/rabbitmq.com_federations.yaml
+- bases/rabbitmq.com_shovels.yaml
+# +kubebuilder:scaffold:crdkustomizeresource
+
+#patchesStrategicMerge:
+#- patches/webhook_in_bindings.yaml
+#- patches/webhook_in_queues.yaml
+#- patches/webhook_in_exchanges.yaml
+#- patches/webhook_in_vhosts.yaml
+#- patches/webhook_in_policies.yaml
+#- patches/webhook_in_users.yaml
+#- patches/webhook_in_permissions.yaml
+#- patches/webhook_in_schemareplications.yaml
+#- patches/webhook_in_federations.yaml
+#- patches/webhook_in_shovels.yaml
+# +kubebuilder:scaffold:crdkustomizewebhookpatch
+
+#- patches/cainjection_in_bindings.yaml
+#- patches/cainjection_in_queues.yaml
+#- patches/cainjection_in_exchanges.yaml
+#- patches/cainjection_in_vhosts.yaml
+#- patches/cainjection_in_policies.yaml
+#- patches/cainjection_in_users.yaml
+#- patches/cainjection_in_permissions.yaml
+#- patches/cainjection_in_schemareplications.yaml
+#- patches/cainjection_in_federations.yaml
+#- patches/cainjection_in_shovels.yaml
+# +kubebuilder:scaffold:crdkustomizecainjectionpatch
+
+configurations:
+- kustomizeconfig.yaml
